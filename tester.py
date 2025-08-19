@@ -207,7 +207,7 @@ def generate_premium_receipt(
     impact_line = f"This trip saved about {showers} hot showers worth of energy."
 
     # QR code (data URI)
-    qr_uri = _qr_data_uri(share_url or "https://your-app.example/eco-receipt")
+    qr_uri = _qr_data_uri(share_url or "https://co2-saver.streamlit.app/")
 
     # Subtle bg pattern (SVG as data URI)
     bg_svg = """
