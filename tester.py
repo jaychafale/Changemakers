@@ -17,7 +17,7 @@ import requests
 from html2image import Html2Image
 import tempfile
 import os
-import qrcode
+#import qrcode
 from io import BytesIO
 from streamlit_option_menu import option_menu
 import torch
@@ -151,12 +151,7 @@ def score_to_stars(percent_improvement: float) -> float:
 # RECEIPT GENERATION
 # -------------------------
 
-def _qr_data_uri(text: str) -> str:
-    import qrcode
-    buf = BytesIO()
-    qrcode.make(text).save(buf, format="PNG")
-    b64 = base64.b64encode(buf.getvalue()).decode("utf-8")
-    return f"data:image/png;base64,{b64}"
+
 
 def _pick_baseline_mode(current_mode: str, factors: dict) -> str:
     # Prefer an obvious baseline if present
@@ -207,7 +202,7 @@ def generate_premium_receipt(
     impact_line = f"This trip saved about {showers} hot showers worth of energy."
 
     # QR code (data URI)
-    qr_uri = _qr_data_uri(share_url or "https://co2-saver.streamlit.app/")
+    #qr_uri = _qr_data_uri(share_url or "https://co2-saver.streamlit.app/")
 
     # Subtle bg pattern (SVG as data URI)
     bg_svg = """
@@ -1144,18 +1139,7 @@ def chatbot_floating_ui():
 #-----------------QR GENERATOR--------------------------------
 from PIL import Image
 
-def generate_qr_code(url: str, size: int = 150):
-    qr = qrcode.QRCode(version=1, box_size=8, border=3)
-    qr.add_data(url)
-    qr.make(fit=True)
-    img = qr.make_image(fill="black", back_color="white").convert("RGB")
-    
-    # Resize QR to fixed size
-    img = img.resize((size, size), Image.LANCZOS)
 
-    buf = BytesIO()
-    img.save(buf, format="PNG")
-    return buf.getvalue()
 #--------------------------------------------------------
 
 # Main app
@@ -1187,13 +1171,13 @@ def main():
         Log your trips, explore eco-friendly alternatives, and earn badges for going green! 🌍✨
         """)
         
-        app_url = "http://localhost:8501"  # or deployed URL
-        qr_bytes = generate_qr_code(app_url, size=90)  # now works
+       # app_url = "http://localhost:8501"  # or deployed URL
+        #qr_bytes = generate_qr_code(app_url, size=90)  # now works
         #qr_bytes = generate_qr_code(app_url)
 
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.image(qr_bytes, caption="📱 Scan to open CO₂ Saver", width=120)
+        #col1, col2, col3 = st.columns([1, 2, 1])
+        #with col2:
+        #    st.image(qr_bytes, caption="📱 Scan to open CO₂ Saver", width=120)
 
         st.markdown("<br>", unsafe_allow_html=True)
 
