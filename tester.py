@@ -1197,7 +1197,7 @@ def main():
     # ---------------- ROUTING ----------------
     if app_mode == "Home":
         chatbot_floating_ui()
-        st.title("🌱 Welcome Back to CO₂ Saver")
+        st.title("🌱 Welcome to CO₂ Saver")
         st.markdown("Use the sidebar to navigate 🚀")
 
     elif app_mode == "Log Trip":
