@@ -1158,34 +1158,10 @@ def main():
 
 
     # --- Session State ---
-    if "entered" not in st.session_state:
-        st.session_state["entered"] = False
     if "app_mode" not in st.session_state:
         st.session_state["app_mode"] = "🏠 Home"
 
     # ---------------- HOME PAGE ----------------
-    if not st.session_state["entered"]:
-        st.title("🌱 Welcome to CO₂ Saver - Green Receipt")
-        st.markdown("""
-        CO₂ Saver helps you **track, compare, and reduce** your carbon footprint from travel.  
-        Log your trips, explore eco-friendly alternatives, and earn badges for going green! 🌍✨
-        """)
-        
-       # app_url = "http://localhost:8501"  # or deployed URL
-        #qr_bytes = generate_qr_code(app_url, size=90)  # now works
-        #qr_bytes = generate_qr_code(app_url)
-
-        #col1, col2, col3 = st.columns([1, 2, 1])
-        #with col2:
-        #    st.image(qr_bytes, caption="📱 Scan to open CO₂ Saver", width=120)
-
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        if st.button("🚀 Get Started", use_container_width=True):
-            st.session_state["entered"] = True
-            st.session_state["app_mode"] = "🚗 Log Trip"
-
-        return  # stop here, don’t render UI until Get Started
 
     # ---------------- MAIN UI ----------------
     app_mode = top_nav_bar()
