@@ -13,3 +13,4 @@ html2image
 qrcode
 streamlit-option-menu
 torch
+google-generativeai
