@@ -156,13 +156,13 @@ h1.breathe-easy {
     border: 2px solid #d8f3dc;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.8);
+    color: #1b4332 !important;
 }
 
-.stTextInput > div > div > input:focus,
-.stNumberInput > div > div > input:focus,
-.stSelectbox > div > div > select:focus {
-    border: 2px solid #40916c;
-    box-shadow: 0 0 0 2px rgba(64, 145, 108, 0.2);
+.stTextInput > div > div > input::placeholder,
+.stNumberInput > div > div > input::placeholder,
+.stSelectbox > div > div > select option {
+    color: #40916c !important;   /* ✅ Softer green placeholder */
 }
 
 /* Data Frames */
