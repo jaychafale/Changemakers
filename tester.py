@@ -1141,6 +1141,30 @@ def main():
 # Create the chat interface inside the sidebar
     with st.sidebar:
         st.markdown("## EcoBot 🌱")
+        
+        st.markdown(
+        """
+        <style>
+        .stChatInput textarea {
+            border-radius: 12px;
+            border: 2px solid #d8f3dc;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000000 !important;   /* Black for visibility */
+            font-weight: bold;           /* Bold text */
+        }
+        .stChatInput input::placeholder {
+            color: #555555 !important;
+            font-weight: normal;
+        }
+        .stChatInput input:focus {
+            border: 2px solid #40916c;
+            box-shadow: 0 0 0 2px rgba(64, 145, 108, 0.2);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     
     # Display existing chat messages
         for message in st.session_state.messages:
