@@ -275,6 +275,32 @@ h1.breathe-easy {
         font-size: 22px;
     }
 }
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+    /* Reduce card padding */
+    .card, .element-container {
+        padding: 12px !important;
+        margin: 10px 0 !important;
+    }
+
+    /* Make sure no section is hidden */
+    .main .block-container {
+        padding-top: 1rem !important;
+    }
+
+    /* Headings smaller for mobile */
+    h1 { font-size: 22px !important; }
+    h2 { font-size: 18px !important; }
+    h3 { font-size: 16px !important; }
+
+    /* Fix overflow so everything shows */
+    body, html {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
